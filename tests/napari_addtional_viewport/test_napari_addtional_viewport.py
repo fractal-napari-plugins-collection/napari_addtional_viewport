@@ -5,6 +5,10 @@ from unittest.mock import MagicMock
 import sys
 
 sys.modules['napari'] = MagicMock()
+sys.modules['napari.utils'] = MagicMock()
+sys.modules['napari.utils.notifications'] = MagicMock()
+sys.modules['vispy'] = MagicMock()
+
 import pytest
 import numpy as np
 import napari
