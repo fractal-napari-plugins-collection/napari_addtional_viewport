@@ -5,7 +5,9 @@ on: [push]
 jobs:
   build:
     runs-on: self-hosted 
-    container: exactlab/python:${{ matrix.python-version }}-ubuntu-18.04
+    container: 
+      image: exactlab/python:${{ matrix.python-version }}-ubuntu-18.04
+      options: --privileged
     strategy:
       max-parallel: 1
       matrix:
