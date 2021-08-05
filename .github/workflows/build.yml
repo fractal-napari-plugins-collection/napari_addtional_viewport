@@ -4,8 +4,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: self-hosted 
-    container: 
+    runs-on: self-hosted
+    container:
       image: exactlab/python:${{ matrix.python-version }}-ubuntu-18.04
       options: --privileged
     strategy:
@@ -21,14 +21,11 @@ jobs:
         apt install -y software-properties-common
         add-apt-repository ppa:deadsnakes/ppa
         apt update
-        apt install -y python${{ matrix.python-version }} python${{ matrix.python-version }}-dev python3-pip git libxkbcommon-x11-0 #xvfb
+        apt install -y python${{ matrix.python-version }} python${{ matrix.python-version }}-dev python3-pip git xvfb #libxkbcommon-x11-0
         python${{ matrix.python-version }} -m pip install pip setuptools wheel --upgrade
         if [ ! -e /usr/bin/python ]; then ln -sf python${{ matrix.python-version }} /usr/bin/python ; fi
         if [ ! -e /usr/bin/pip ]; then ln -s /usr/local/bin/pip${{ matrix.python-version }} /usr/bin/pip ; fi
-        #export DISPLAY=:99.0
-        #/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX +render -noreset
-        #sleep 3
-        #pip install pytest-xvfb
+        pip install pytest-xvfb
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
@@ -39,6 +36,9 @@ jobs:
         pycodestyle --max-line-length=120 src
     - name: Run tests
       run: |
+        export DISPLAY=:99.0
+        /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX +render -noreset
+        sleep 3
         coverage run --source=src ./setup.py test
         # stop the build if the test coverage is under 80%
         # coverage report --fail-under=80
