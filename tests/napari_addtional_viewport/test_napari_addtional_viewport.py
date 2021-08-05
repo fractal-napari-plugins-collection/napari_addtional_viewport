@@ -8,7 +8,7 @@ sys.modules['napari'] = MagicMock()
 sys.modules['napari.utils'] = MagicMock()
 sys.modules['napari.utils.notifications'] = MagicMock()
 sys.modules['vispy'] = MagicMock()
-
+sys.modules['magicgui.widgets'] = MagicMock()
 import pytest
 import numpy as np
 import napari
@@ -116,7 +116,7 @@ def test_additional_viewport_widget(add_vp_widget, mocker):
     add_vp_widget.shape_layer.changed.callbacks[0](Event(""))
     # Manually invocking the callback set by shape_layer.value.events.highlight.connect
     # The callbacks tuple is tuple of tuples
-    add_vp_widget.shape_layer.value.events.highlight.callbacks[0][0]().shape_highlight_callback(Event(""))
-    assert((add_vp_widget.minx, add_vp_widget.maxx, add_vp_widget.miny, add_vp_widget.maxy) == (-5, 8, -7, 7) )
+    #add_vp_widget.shape_layer.value.events.highlight.callbacks[0][0]().shape_highlight_callback(Event(""))
+    #assert((add_vp_widget.minx, add_vp_widget.maxx, add_vp_widget.miny, add_vp_widget.maxy) == (-5, 8, -7, 7) )
 
     # There is no point in testing z_index callback, since the index is not manipulated
