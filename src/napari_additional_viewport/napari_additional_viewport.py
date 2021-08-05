@@ -78,6 +78,7 @@ class AdditionalViewPortWidget(FunctionGui):
         self.maxy = STARTING_CANVAS_HEIGHT
         self.image = None
 
+        '''
         canvas = scene.SceneCanvas(
             keys=None, vsync=True, size=(STARTING_CANVAS_WIDTH, STARTING_CANVAS_HEIGHT),
             show=False
@@ -92,7 +93,7 @@ class AdditionalViewPortWidget(FunctionGui):
         self.view.camera.flip = (0, 1, 0)  # flip y-axis to have correct aligment
 
         self.viewer.window.add_dock_widget(canvas.native, area='right', name='Additional viewport')
-
+        '''
         @self.image_layer.changed.connect
         def on_update_image_layer(event):
             # pylint: disable=W0613
