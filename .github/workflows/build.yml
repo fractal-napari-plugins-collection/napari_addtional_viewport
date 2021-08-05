@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted 
     container: exactlab/python:${{ matrix.python-version }}-ubuntu-18.04
     strategy:
       max-parallel: 1
