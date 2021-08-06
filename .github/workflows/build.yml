@@ -4,16 +4,13 @@ on: [push]
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-18.04
     container:
       image: exactlab/python:${{ matrix.python-version }}-ubuntu-18.04
-      options: --privileged
     strategy:
       max-parallel: 1
       matrix:
         python-version: [3.7]
-    env:
-      DISPLAY: :0
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
