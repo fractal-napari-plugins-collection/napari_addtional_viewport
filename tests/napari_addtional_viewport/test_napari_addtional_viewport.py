@@ -116,18 +116,6 @@ def add_vp_widget():
     pass
 
 
-"""
-def test_event_emitter(add_vp_widget, mocker):
-    i = []
-    test_emitter = EventEmitter(source=None, type="test_emitter", event_class=Event)
-    @test_emitter.connect
-    def on_update_layer(event):
-        i.append(event.value)
-    test_emitter(value=42)
-    assert i[0] == 42
-"""
-
-
 def test_additional_viewport_widget(add_vp_widget, mocker):
     """
     Integration test for the napari_multiple_viewport.AdditionalViewPortWidget.
