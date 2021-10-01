@@ -1,5 +1,5 @@
-Additional Viewport widget
-------------------------------
+Additional Viewport Widget
+-----------------------------------------
 
 This plugin adds and additional viewport, focused on a selected area from the main view.
 
@@ -21,4 +21,3 @@ Finally, the ``z-index`` slider allows, in the case of z-stacks, to move between
 
 Once a shape layer and an image layer are selected, using the napari shape selection tool will focus the addtional viewport
 on the bouding box of the currently selected shape in the currently selected image layer
-

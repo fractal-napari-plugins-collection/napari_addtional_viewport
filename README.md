@@ -3,7 +3,7 @@
 ![Build](https://github.com/fractal-napari-plugins-collection/napari_addtional_viewport/actions/workflows/build.yml/badge.svg?branch=master)
 
 # Napari - Plugins
-This repository contains the following Napari plugins developed for the Fractal
+This repository contains the following Napari plugin developed for the Fractal
 Analytics Platform (https://github.com/fractal-analytics-platform):
 
 | Plugin | Description |
@@ -32,8 +32,7 @@ pip install .
 ```
 
 ## Usage
-The plugin is automatically discovered by Napari and involved when opening
-new files.
+The widget is available via "Plugins - Add Dock Widget".
 
 > You can find all installed plugins from Napari's
 > "Plugins - Install/Uninstall Package(s)..." menu.
@@ -48,13 +47,8 @@ python setup.py test
 ```
 
 ## Documentation
-
-TBD
-[//]: # "Add paragraph on how to generate the Sphinx documentation."
+The user documentation is available via https://fractal-napari-plugins-collection.github.io/user-documentation/.
 
 ## Copyright
-The copyright holders do NOT offer any license for this project.
-This means as nobody but the copyright holders themselves can use, copy, distribute, or modify the project!
-Please note the difference between UNLICENSED and UNLICENSE projects (which mean the opposite).
-
-@see also: https://choosealicense.com/no-permission/
+Copyright (c) 2021, Friedrich Miescher Institute for Biomedical Research & University of Zurich. All rights reserved.
+Licensed under BSD 3-Clause - see ./LICENSE
