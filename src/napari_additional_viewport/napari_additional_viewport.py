@@ -150,6 +150,7 @@ class AdditionalViewPortWidget(FunctionGui):
             return
 
         shape_id = list(self.shape_layer.value.selected_data)[-1]
+
         shape_coords = np.round(self.shape_layer.value.data[shape_id])
 
         # if we have a stack of images, also the shape have a z dimensional
@@ -207,6 +208,6 @@ def napari_experimental_provide_dock_widget():
     """
     Napari plugin that returns a widget for reading features from a CSV file.
 
-    :return: A FeatureVisualizerWidget class
+    :return: An AdditionalViewPortWidget class
     """
     return AdditionalViewPortWidget
